@@ -30,7 +30,7 @@ private Passenger myPassenger;
 
     @Test
     void testIdPass(){
-        assertEquals(1234334567891L, myPassenger.getId());
+        assertEquals("1234334567891L", myPassenger.getId());
     }
 
     @Test

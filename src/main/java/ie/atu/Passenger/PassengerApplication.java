@@ -20,11 +20,7 @@ public class PassengerApplication {
 		this.myService = myService;
 	}
 
-	public static void main(String[] args) {
-		System.out.println("Running Passenger Image");
-		SpringApplication.run(PassengerApplication.class, args);
-
-	}
+	public static void main(String[] args) {SpringApplication.run(PassengerApplication.class, args);}
 
 	@GetMapping
 	public List<Passenger> getPassengers()

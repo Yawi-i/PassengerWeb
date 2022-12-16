@@ -1,4 +1,4 @@
 FROM openjdk:19
-COPY target/classes/ /tmp
+COPY target/ /tmp
 WORKDIR /tmp
-CMD ["java","ie.atu.Passenger"]
+CMD java -jar Passenger-0.0.1-SNAPSHOT.jar
