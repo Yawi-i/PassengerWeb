@@ -21,7 +21,9 @@ public class PassengerApplication {
 	}
 
 	public static void main(String[] args) {
+		System.out.println("Running Passenger Image");
 		SpringApplication.run(PassengerApplication.class, args);
+
 	}
 
 	@GetMapping
