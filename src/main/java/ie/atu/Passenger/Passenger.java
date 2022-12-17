@@ -1,11 +1,27 @@
 package ie.atu.Passenger;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table
 public class Passenger {
     private String title;
     private String name;
     private String id;
     private long phone;
     private int age;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long count;
+
 
     public Passenger(String title, String name, String id, long phone, int age) {
         setTitle(title);
@@ -20,7 +36,7 @@ public class Passenger {
     }
 
     public void setTitle(String title) {
-        if(title == "Mrs" || title == "Mr" || title == "Ms"){
+        if("Mr".equalsIgnoreCase(title) || "Mrs".equalsIgnoreCase(title) || "Ms".equalsIgnoreCase(title)){
             this.title = title;
         }
         else {

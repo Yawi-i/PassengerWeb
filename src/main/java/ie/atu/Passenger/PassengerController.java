@@ -1,9 +1,7 @@
 package ie.atu.Passenger;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.persistence.PostUpdate;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +26,29 @@ public class PassengerController {
     public Passenger getPassenger(@PathVariable String passengerID){
 
         return myService.getPassenger(passengerID);
+    }
+
+    //save operation
+    @PostMapping("")
+    public void savePassenger(@RequestBody Passenger passenger){
+        myService.savePassenger(passenger);
+    }
+
+    //Find passenger by name
+    @GetMapping("name/{name}")
+    public Passenger getPassengerByName(@PathVariable("name") String name){
+        return myService.findPassengerByName(name);
+    }
+
+    //Delete a passenger
+    @DeleteMapping("delete/{count}")
+    public void deletePassenger(@PathVariable("count")Long count){
+        myService.deletePassenger(count);
+    }
+
+    //http://localhost:8081/api/passenger/age?age_start=1&age_end=60
+    @GetMapping("/age")
+    public List<Passenger> getPassengerByAge(@RequestParam(name = "age_start") int age1, @RequestParam(name = "age_end") int age2){
+        return myService.findPassengerByAgeRange(age1, age2);
     }
 }
